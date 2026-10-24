@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DKG Energy Pro | Σύγκριση Τιμολογίων Ρεύματος</title>
+<style>
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:#17243a;background:#eef3f8;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0;padding:26px 20px 44px;background:radial-gradient(ellipse at top left,#dcecff 0,transparent 40%),#eef3f8}main{max-width:1220px;margin:auto}
+.hero{background:linear-gradient(120deg,#102b50 0%,#176b80 65%,#0e9ca7 100%);padding:24px 30px;border-radius:20px;margin:4px 0 22px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:0 12px 28px #102b5020}
+.hero-copy{min-width:0;flex:1}.hero h1{font-size:clamp(23px,3.2vw,34px);letter-spacing:-.5px;line-height:1.18;margin:0 0 9px;color:#fff}.sub{color:#d6e5f7;margin:0;line-height:1.55;max-width:780px;font-size:14px}
+.dkg-logo{flex:0 0 auto;display:flex;align-items:center;justify-content:center;gap:3px;padding:12px 15px;background:#fff;border-radius:13px;box-shadow:0 5px 16px #001b3333;min-width:108px;height:68px;color:#12375a;font-weight:950;font-size:27px;letter-spacing:-1.8px;line-height:1}
+.dkg-logo .dkg-d{color:#111111}.dkg-caption{display:block;font-size:8px;letter-spacing:1px;text-align:center;margin-top:5px;color:#111111;font-weight:850;white-space:nowrap}
+@media(max-width:600px){.hero{padding:20px;align-items:flex-start;gap:14px}.hero h1{font-size:23px}.sub{font-size:12px}.dkg-logo{min-width:75px;height:54px;padding:8px;font-size:21px}.dkg-caption{font-size:6px;letter-spacing:1.4px}}
+.panel{background:#fff;border:1px solid #dce5ef;border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 8px 24px #203b5b0b}.section-kicker{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:#07808d;font-weight:850;margin:0 0 14px}.results-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.results-heading h2{font-size:20px;margin:22px 2px 12px}.results-count{font-size:12px;font-weight:800;color:#45617d;background:#e4edf6;border-radius:999px;padding:7px 10px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;align-items:end}
+label{display:block;font-size:13px;font-weight:750;color:#35465e;margin-bottom:7px}
+input,select{width:100%;padding:12px 13px;border:1px solid #cbd7e5;border-radius:11px;background:#fbfdff;font-size:16px;color:#17243a;outline:none;transition:border-color .15s,box-shadow .15s}
+input:focus,select:focus{border-color:#158b9c;box-shadow:0 0 0 3px #158b9c20}
+.check{display:flex;align-items:center;gap:10px;padding:15px 0 0}.check input{width:17px;height:17px;accent-color:#087f8c}.check label{margin:0;line-height:1.4}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;background:transparent;border:0;box-shadow:none;padding:0}
+.metric{background:#fff;border:1px solid #dce5ef;border-radius:16px;padding:18px;box-shadow:0 6px 20px #203b5b08}.metric small{display:block;color:#687991;margin-bottom:8px;line-height:1.4}.metric strong{font-size:clamp(21px,2vw,27px);letter-spacing:-.5px;color:#14385a}
+.results{display:grid;gap:11px}
+.item{background:#fff;border:1px solid #dce5ef;border-radius:15px;padding:17px 19px;display:grid;grid-template-columns:minmax(220px,1.5fr) minmax(150px,.7fr) minmax(150px,.7fr);gap:16px;align-items:center;box-shadow:0 5px 16px #203b5b08;transition:transform .15s,border-color .15s}
+.item:hover{transform:translateY(-1px);border-color:#a8c9d8}.item:first-child{border-color:#36a6a2;box-shadow:0 0 0 1px #36a6a220,0 7px 20px #203b5b0a;background:linear-gradient(110deg,#f5fffc 0%,#fff 48%)}
+.provider{font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:800;color:#07808d;margin-bottom:5px}.brandline{display:flex;align-items:center;gap:10px;margin-bottom:7px}.brandmark{display:inline-flex;align-items:center;justify-content:center;min-width:68px;height:34px;padding:0 9px;border-radius:9px;background:var(--brand-bg,#edf4fb);color:var(--brand,#173755);font-size:12px;font-weight:900;letter-spacing:-.3px;border:1px solid color-mix(in srgb,var(--brand,#173755) 18%,white);box-shadow:0 2px 5px #203b5b0a}.brandline .provider{margin:0;font-size:10px}.name{font-weight:800;font-size:16px;line-height:1.35;color:#1a2e49}.details{font-size:12px;color:#6b7b90;margin-top:7px;line-height:1.55;overflow-wrap:anywhere}
+.price{font-size:clamp(20px,2vw,25px);font-weight:850;letter-spacing:-.5px;color:#087f73;font-variant-numeric:tabular-nums}.cost-block{padding:12px 13px;background:#f5f8fc;border:1px solid #e6edf5;border-radius:12px}.item:first-child .cost-block{background:#eafaf4;border-color:#c6eee0}.cost-label{font-size:11px;color:#60748a;margin-bottom:5px}.cost-split{font-size:13px;font-weight:750;color:#263e58;line-height:1.5}.item .maininfo{min-width:0}.muted{font-size:12px;color:#738198;line-height:1.5}.tag{display:inline-block;font-size:11px;font-weight:800;color:#06665e;background:#dff7ef;padding:6px 9px;border-radius:7px;margin-top:9px}
+.warning{background:#fff8e8;border:1px solid #f0d79d;padding:14px 16px;border-radius:12px;color:#684c12;font-size:13px;line-height:1.6}
+h2{color:#173755}footer{font-size:12px;color:#6b7b90;line-height:1.7;margin:20px 3px}
+@media(max-width:720px){body{padding:12px}main>h1{padding:24px 20px 10px}main>.sub{padding:0 20px 22px}.panel{padding:16px}.item{grid-template-columns:1fr 1fr;padding:15px;gap:12px}.item .maininfo{grid-column:1/-1}.price{font-size:20px}.summary{grid-template-columns:1fr}.results-heading h2{font-size:18px}}
+@media(max-width:440px){.hero{flex-direction:column;align-items:stretch}.dkg-logo{align-self:flex-start}.item{grid-template-columns:1fr}.item .maininfo{grid-column:auto}.cost-block{padding:11px}}
+@media print{body{background:#fff;padding:0}.hero{background:#173755!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.item,.panel,.metric{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<main>
+<header class="hero">
+  <div class="hero-copy">
+    <h1>DKG Energy Pro</h1>
+    <p class="sub">Εργαλείο σύγκρισης οικιακών τιμολογίων ηλεκτρικής ενέργειας. Επιβεβαιώστε τις ισχύουσες τιμές πριν από κάθε ενημέρωση πελάτη.</p>
+  </div>
+  <div class="dkg-logo" aria-label="DKG Telephone Media Service"><div><span class="dkg-d">D</span>KG<span class="dkg-caption">Telephone Media Service</span></div></div>
+</header>
+<section class="panel">
+<div class="section-kicker">Ρυθμίσεις σύγκρισης</div>
+<div class="controls">
+<div><label for="kwh">Κατανάλωση (kWh/μήνα)</label><input id="kwh" type="number" min="1" max="10000" value="300"></div>
+<div><label for="night">Από αυτές, νυχτερινές kWh</label><input id="night" type="number" min="0" max="10000" value="0"></div>
+<div><label for="discount">Τρόπος υπολογισμού</label><select id="discount"><option value="yes">Με έκπτωση συνέπειας</option><option value="no">Χωρίς έκπτωση συνέπειας</option></select></div>
+<div><label for="provider">Πάροχος</label><select id="provider"><option value="all">Όλοι οι πάροχοι</option></select></div>
+</div>
+<div class="check"><input id="showPlan" type="checkbox"><label for="showPlan" style="margin:0">Να εμφανίζεται και το ειδικό πρόγραμμα σταθερής μηνιαίας πληρωμής ΔΕΗ myHome Plan</label></div>
+</section>
+<section class="panel summary">
+<div class="metric"><small>Προγράμματα στην προβολή</small><strong id="count">—</strong></div>
+<div class="metric"><small>Χαμηλότερο εκτιμώμενο μηνιαίο κόστος</small><strong id="lowest">—</strong></div>
+<div class="metric"><small>Κατανάλωση που υπολογίζεται</small><strong id="consumption">300 kWh</strong></div>
+</section>
+<div id="warnings" class="warning">Ενδεικτική σύγκριση χρέωσης ενέργειας και παγίου. Δεν περιλαμβάνει ρυθμιζόμενες χρεώσεις, φόρους, δημοτικά τέλη ή άλλες επιβαρύνσεις. Οι εκπτώσεις συνέπειας ισχύουν μόνο εφόσον πληρούνται οι όροι του παρόχου.</div>
+<div class="results-heading"><h2>Αποτελέσματα σύγκρισης</h2><span id="resultsCount" class="results-count">Ταξινόμηση: χαμηλότερο κόστος πρώτα</span></div>
+<div id="results" class="results"></div>
+<footer>Σημαντικό: Οι τιμές και οι εμπορικοί όροι δεν έχουν επαληθευτεί ανεξάρτητα. Για προγράμματα με κλιμακωτή χρέωση, χρονικά μεταβαλλόμενες τιμές ή ειδικούς όρους, επιβεβαιώστε τους όρους της τρέχουσας σύμβασης. Το πρόγραμμα ΔΕΗ myHome Maxima έχει προσωρινά υπολογιστεί με 0,151 €/kWh για τις πρώτες 600 kWh και 0,139 €/kWh για τις επιπλέον kWh, μέχρι να επιβεβαιωθεί ο ακριβής κανόνας. Το ΔΕΗ myHome Plan είναι ειδικό πρόγραμμα σταθερής πληρωμής και δεν είναι άμεσα συγκρίσιμο με τα υπόλοιπα.</footer>
+</main>
+<script>
+const programs = [
+{p:"ΔΕΗ",n:"myHome Enter",term:"12 μήνες",kind:"simple",base:.145,disc:.145,fee:7.50,note:"Ίδια τιμή ημέρας/νύχτας, σύμφωνα με τα στοιχεία που δόθηκαν."},
+{p:"ΔΕΗ",n:"myHome Enter 2",term:"24 μήνες",kind:"daynight",day:.155,night:.115,fee:9,note:"Υπολογίζεται με την ημερήσια τιμή για τις kWh που δεν δηλώνονται ως νυχτερινές."},
+{p:"ΔΕΗ",n:"myHome Maxima",term:"18 μήνες",kind:"tier",base:.151,threshold:600,above:.139,fee:13.50,note:"Προσωρινή υπόθεση: η χαμηλότερη τιμή εφαρμόζεται μόνο στις kWh πάνω από 600."},
+{p:"ΔΕΗ",n:"myHome Plan",term:"12 μήνες",kind:"plan",fee:60,allowance:4500,over:.145,note:"Πάγια μηνιαία πληρωμή 60€ που περιλαμβάνει ρυθμιζόμενες χρεώσεις, με εκκαθάριση ανά εξάμηνο και όριο 4.500 kWh/έτος."},
+{p:"Enerwave",n:"Reward Stable Max 24M 2.0",term:"24 μήνες",kind:"simple",base:.260,disc:.129,fee:15.90},
+{p:"Enerwave",n:"Reward Stable 12M 4.0",term:"12 μήνες",kind:"simple",base:.260,disc:.169,fee:9.90},
+{p:"Enerwave",n:"Reward Stable Zero 24M 2.0",term:"24 μήνες",kind:"simple",base:.260,disc:.199,fee:0},
+{p:"Protergia",n:"Οικιακό Value Balance 12M",term:"12 μήνες",kind:"tier",base:.139,threshold:150,above:.219,fee:10.90,note:"Πρώτες 150 kWh στην πρώτη τιμή, οι επιπλέον στη δεύτερη."},
+{p:"Protergia",n:"Οικιακό Value Sure 12M 4.0",term:"12 μήνες",kind:"phased",base:.197,disc:.127,laterBase:.247,laterDisc:.177,phaseMonths:3,fee:11.90,note:"Οι πρώτοι 3 μήνες έχουν διαφορετική τιμή από τους υπόλοιπους 9."},
+{p:"ΗΡΩΝ",n:"Blue More Home",term:"24 μήνες",kind:"simple",base:.286,disc:.145,fee:12.90},
+{p:"ΗΡΩΝ",n:"Blue Smart More Home",term:"24 μήνες",kind:"thresholdfee",base:.286,disc:.139,fee:15.90,lowFee:7.95,threshold:150,note:"Πάγιο 7,95€ έως 150 kWh και 15,90€ από 151 kWh και πάνω."},
+{p:"ΗΡΩΝ",n:"Blue Smart Home",term:"12 μήνες",kind:"thresholdfee",base:.286,disc:.158,fee:15.90,lowFee:7.95,threshold:150,note:"Πάγιο 7,95€ έως 150 kWh και 15,90€ από 151 kWh και πάνω."},
+{p:"ΗΡΩΝ",n:"Blue Simple More Home",term:"24 μήνες",kind:"simple",base:.199,disc:.199,fee:0,note:"Χωρίς έκπτωση συνέπειας."},
+{p:"ΗΡΩΝ",n:"Blue Generous Max Home",term:"18 μήνες",kind:"simple",base:.286,disc:.168,fee:11.90},
+{p:"Volton",n:"Blue Fixed Plus 24M",term:"24 μήνες",kind:"phased",base:.280,disc:.120,laterBase:.280,laterDisc:.165,phaseMonths:3,fee:9.90,note:"Με συνέπεια: 0,120€/kWh για 3 μήνες και 0,165€/kWh μετά."},
+{p:"Volton",n:"Blue Fixed Plus 18M",term:"18 μήνες",kind:"phased",base:.280,disc:.125,laterBase:.280,laterDisc:.165,phaseMonths:3,fee:10.90,note:"Με συνέπεια: 0,125€/kWh για 3 μήνες και 0,165€/kWh μετά."},
+{p:"Volton",n:"Blue Fixed Plus 12M",term:"12 μήνες",kind:"phased",base:.280,disc:.130,laterBase:.280,laterDisc:.165,phaseMonths:3,fee:12.90,note:"Με συνέπεια: 0,130€/kWh για 3 μήνες και 0,165€/kWh μετά."},
+{p:"NRG",n:"adjust 24M",term:"24 μήνες",kind:"thresholdfee",base:.286,disc:.139,fee:15.90,lowFee:7.95,threshold:150,note:"Πάγιο 7,95€ έως 150 kWh και 15,90€ από 151 kWh και πάνω."},
+{p:"NRG",n:"adjust 3.0",term:"12 μήνες",kind:"thresholdfee",base:.286,disc:.158,fee:15.90,lowFee:7.95,threshold:150,note:"Πάγιο 7,95€ έως 150 kWh και 15,90€ από 151 kWh και πάνω."},
+{p:"NRG",n:"Fixed On Time 24M",term:"24 μήνες",kind:"simple",base:.286,disc:.145,fee:12.90},
+{p:"ZeniΘ",n:"Power Home Fixed Safe 12M — καταχώριση Α",term:"12 μήνες",kind:"simple",base:.299,disc:.159,fee:15.90,note:"Καταχώριση Α, όπως δόθηκε."},
+{p:"ZeniΘ",n:"Power Home Fixed Protect 2.0",term:"12 μήνες",kind:"phased",base:.299,disc:.127,laterBase:.299,laterDisc:.177,phaseMonths:4,fee:12.90,note:"Πρώτες 120 ημέρες με τιμή 0,127€/kWh, μετά 0,177€/kWh με συνέπεια· οι 120 ημέρες προσεγγίζονται ως 4 μήνες."},
+{p:"ZeniΘ",n:"Power Home Fixed Safe 12M — ξεχωριστή καταχώριση",term:"12 μήνες",kind:"simple",base:.299,disc:.159,fee:15.90,note:"Κρατείται χωριστά κατόπιν διευκρίνισης του χρήστη."},
+{p:"ZeniΘ",n:"Power Home Prime 2Y",term:"24 μήνες",kind:"simple",base:.299,disc:.139,fee:15.90},
+{p:"Φυσικό Αέριο Αττικής",n:"MAXI Home Energy Reward",term:"12 μήνες",kind:"tier",base:.209,threshold:100,above:.179,disc:.099,discAbove:.179,fee:10.90,note:"Με συνέπεια: πρώτες 100 kWh στα 0,099€/kWh και επιπλέον kWh στα 0,179€/kWh."},
+{p:"Φυσικό Αέριο Αττικής",n:"MAXI HOME Safe",term:"12 μήνες",kind:"simple",base:.259,disc:.149,fee:8.90,lateFee:13.90,lateMonths:2,note:"Πάγιο 8,90€ για τους μήνες 1–10 και 13,90€ για τους μήνες 11–12."}
+];
+const euro = n => new Intl.NumberFormat('el-GR',{style:'currency',currency:'EUR'}).format(n);
+const fmt = n => n.toLocaleString('el-GR',{minimumFractionDigits:3,maximumFractionDigits:3})+" €/kWh";
+const kwhEl=document.getElementById('kwh'), nightEl=document.getElementById('night'), discEl=document.getElementById('discount'), providerEl=document.getElementById('provider'), showPlanEl=document.getElementById('showPlan');
+[...new Set(programs.map(x=>x.p))].forEach(p=>{let o=document.createElement('option');o.value=p;o.textContent=p;providerEl.appendChild(o)});
+function calc(x,k,night,discount){
+ if(x.kind==="plan"){
+  if(!showPlanEl.checked)return null;
+  const annual=k*12; const over=Math.max(0,annual-x.allowance);
+  return {monthly:60+over*x.over/12, energy:null, fee:60, note:x.note+" Εκτίμηση με βάση ετήσια κατανάλωση και υπέρβαση."};
+ }
+ let rate=(discount?x.disc:x.base);
+ let energy=0, fee=x.fee, extra="";
+ if(x.kind==="daynight"){
+   const n=Math.min(k,Math.max(0,night)); const d=k-n;
+   energy=d*x.day+n*x.night;
+ } else if(x.kind==="tier"){
+   if(discount && x.discAbove!==undefined){
+    energy=Math.min(k,x.threshold)*x.disc+Math.max(0,k-x.threshold)*x.discAbove;
+   } else {
+    energy=Math.min(k,x.threshold)*x.base+Math.max(0,k-x.threshold)*x.above;
+   }
+ } else if(x.kind==="thresholdfee"){
+   energy=k*rate; fee=k<=x.threshold?x.lowFee:x.fee;
+ } else if(x.kind==="phased"){
+   const early=discount?x.disc:x.base, later=discount?x.laterDisc:x.laterBase;
+   energy=k*((early*x.phaseMonths+later*(12-x.phaseMonths))/12);
+   extra=`Μέση τιμή ενέργειας στο συμβόλαιο: ${fmt((early*x.phaseMonths+later*(12-x.phaseMonths))/12)}. `;
+ } else {
+   energy=k*rate;
+ }
+ let monthlyFee=fee;
+ if(x.lateFee!==undefined) monthlyFee=(fee*10+x.lateFee*2)/12;
+ return {monthly:energy+monthlyFee,energy,fee:monthlyFee,note:(x.note||"")+(extra?" "+extra:"")};
+}
+function brandStyle(provider){
+ const styles={
+  "ΔΕΗ":["ΔΕΗ","#e7f0ff","#1763b4"],
+  "Enerwave":["enerwave","#e5f8f5","#087d78"],
+  "Protergia":["PROTERGIA","#fff0e5","#d75b18"],
+  "ΗΡΩΝ":["ΗΡΩΝ","#e7f4ff","#0872a5"],
+  "Volton":["volton","#f0eaff","#663bb7"],
+  "NRG":["NRG","#fff0ef","#c93336"],
+  "ZeniΘ":["ZeniΘ","#fff3e3","#9b5b08"],
+  "Φυσικό Αέριο Αττικής":["ΦΥΣΙΚΟ ΑΕΡΙΟ","#e7f7eb","#287a45"]
+ };
+ const a=styles[provider]||[provider,"#edf4fb","#173755"];
+ return `<span class="brandmark" style="--brand-bg:${a[1]};--brand:${a[2]}">${a[0]}</span>`;
+}
+function render(){
+ const k=Math.max(1,Number(kwhEl.value)||300), night=Math.min(k,Math.max(0,Number(nightEl.value)||0)), discount=discEl.value==="yes";
+ document.getElementById('consumption').textContent=k.toLocaleString('el-GR')+" kWh";
+ let arr=programs.filter(x=>providerEl.value==="all"||x.p===providerEl.value).map(x=>({x,c:calc(x,k,night,discount)})).filter(y=>y.c);
+ arr.sort((a,b)=>a.c.monthly-b.c.monthly);
+ document.getElementById('count').textContent=arr.length;
+ document.getElementById('lowest').textContent=arr.length?euro(arr[0].c.monthly):"—";
+ document.getElementById('resultsCount').textContent=`${arr.length} προγράμματα · χαμηλότερο κόστος πρώτα`;
+ document.getElementById('results').innerHTML=arr.map(({x,c},i)=>`<article class="item">
+ <div class="maininfo"><div class="brandline">${brandStyle(x.p)}<div class="provider">${x.p}</div></div><div class="name">${x.n}</div><div class="details">${x.term}${x.note? " · "+x.note:""}</div>${i===0?'<span class="tag">★ Οικονομικότερο με τα επιλεγμένα στοιχεία</span>':""}</div>
+ <div class="cost-block"><div class="cost-label">Εκτιμώμενο μηνιαίο σύνολο</div><div class="price">${euro(c.monthly)}</div><div class="muted">${discount?"Με έκπτωση συνέπειας":"Χωρίς έκπτωση συνέπειας"}</div></div>
+ <div><div class="muted">Ανάλυση κόστους</div><div class="cost-split">${c.energy===null?"Ειδικό πρόγραμμα σταθερής πληρωμής":`Ενέργεια ${euro(c.energy)}<br>Πάγιο ${euro(c.fee)}`}</div></div>
+ </article>`).join("");
+ if(!arr.length)document.getElementById('results').innerHTML='<div class="panel">Δεν υπάρχουν προγράμματα για τα φίλτρα που επέλεξες.</div>';
+}
+[kwhEl,nightEl,discEl,providerEl,showPlanEl].forEach(el=>el.addEventListener('input',render));
+render();
+</script>
+</body>
+</html>
